@@ -68,10 +68,40 @@
     </header>
 
     <div class="hero-section">
-        <div class="hero-msg">
-            <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="javascript:void(0)">Click here to go to amazon.in</a></p>
+        <button class="arrow prev" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel">
+          <img src="/Amazon-clone/Images/hero_image.jpg" alt="Image 1">
+          <img src="/Amazon-clone/Images/hero_image2.jpg" alt="Image 2">
+          <img src="/Amazon-clone/Images/hero_image3.jpg" alt="Image 3">
+          <img src="/Amazon-clone/Images/hero_image4.jpg" alt="Image 4">
         </div>
-    </div>
+        <button class="arrow next" onclick="nextSlide()">&#10095;</button>
+        <div class="hero-msg">
+          <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="javascript:void(0)">Click here to go to amazon.in</a></p>
+        </div>
+      </div>
+      <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        const totalSlides = slides.length;
+      
+        function showSlide(index) {
+          const carousel = document.querySelector('.carousel');
+          carousel.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+        }
+      
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          showSlide(currentIndex);
+        }
+      
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        }
+      
+        setInterval(nextSlide, 6000);
+      </script>
 
     <div class="shop-section">
         <div class="box1 box">
